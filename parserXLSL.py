@@ -21,7 +21,7 @@ for i in range(0,len(sheetNames)):
         if type(sheet['F3'].value) is int and type(sheet['F4'].value) is int:   #проверяем на значение int
             rezultLine += ":" + str(sheet['F3'].value) + ":" + str(sheet['F4'].value) + ":"
             for k in range(2,sheet.max_row):                 #начинаем со второй строки ибо первая это Name
-                if str(sheet.cell(row = k,column = 20).value) != "None":      #если ячейка элемента пуста, то элемента нет
+                if str(sheet.cell(row = k,column = 20).value) != "None" and str(sheet.cell(row = k,column = 20).value) != " ":      #если ячейка элемента пуста, то элемента нет
                     rezultLine += "/" + str(sheet.cell(row = k,column = 19).value) + "~" + str(sheet.cell(row = k,column = 20).value) #19 - это порядковый номер буквы S по горизонтали (номера элементов) 20 - это порядковый номер буквы Т по горизонтали (имена элементов)
         else:
             rezultLine += ":parsingError (value not int type)"
